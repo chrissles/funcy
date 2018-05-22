@@ -4,7 +4,7 @@ Title: Functional Clustering Algorithms
 Version: 0.8.7
 Date: 2018-05-22
 Authors@R: c(
-	   person(given="Christina", family="Yassouridis", email="c_ya02@yahoo.de",
+	   person(given="Christina", family="Yassouridis", email="chris.yassou@gmail.com",
 	   role=c("aut", "cre")),
 	   person(given="Dominik", family="Ernst", role="ctb"),
 	   person(given="Madison", family="Giacofci", role="ctb"),
@@ -34,7 +34,7 @@ Suggests: scatterplot3d, Funclustering, funHDDC
 LazyLoad: yes
 Encoding: UTF-8
 NeedsCompilation: yes
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Packaged: 2017-02-01 21:27:42 UTC; chrissles
 Author: Christina Yassouridis [aut, cre],
   Dominik Ernst [ctb],
