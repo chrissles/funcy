@@ -225,8 +225,7 @@ funHDDCWrapper <- function(data, k, reg, regTime,  funcyCtrlMbc,
     baseObj <- makeBasis(baseType, t_all, nbasis=dimBase)$bObj
     fd <- Data2fd(data, argvals=t_all, basisobj=baseObj);
     set.seed(seed)
-    # res=try(funHDDC::funHDDC(fd=fd, K=k, init=init, model=model, thd=thd,
-    #     maxit=maxit ,eps=eps, ...), silent=TRUE)
+
     res=tryCatch(funHDDC::funHDDC(data = fd, K = k, init = init, 
     												 model = model, threshold = thd, itermax = maxit, eps = eps, 
     												 ...), 
