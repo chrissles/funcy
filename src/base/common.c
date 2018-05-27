@@ -84,12 +84,12 @@ void fl_print_msg_header(char marker, const char *color)
 
 void fl_print_msg_loc(const char *file, const char *func, int line)
 {
-  const char *prev = file;
+  //const char *prev = file;
   const char *last = file;
 
   /* Finds the file and containing directory, if it exists. */
   while ((file = strchr(last, '/'))) {
-    prev = last;
+    //prev = last;
     last = file + 1;
   }
 
