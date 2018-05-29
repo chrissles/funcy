@@ -103,6 +103,9 @@ funcit <- function(data,  k,
     }
     ##Method 4-----------
     if("funclust" %in% usedMethods){
+    	if(!requireNamespace("Funclustering"))
+    		stop("Please install package 'Funclustering' to use method 'funclust'.")
+    	
         indx <- match("funclust",usedMethods)
         RES[[indx]] <-
             parallelFct(funclustWrapper(data=data, k=k, 
@@ -112,6 +115,9 @@ funcit <- function(data,  k,
     }
     ##Method 5-----------
     if("funHDDC" %in% usedMethods){
+    	if(!requireNamespace("funHDDC"))
+    		stop("Please install package 'funHDDC' to use method 'funHDDC'.")
+    	
         indx <- match("funHDDC", usedMethods)
         RES[[indx]] <-
             parallelFct(funHDDCWrapper(data=data, k=k,
