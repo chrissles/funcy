@@ -61,18 +61,23 @@ funcit <- function(data,  k,
                    "works only on regular data!\n Please choose one of fitfclust, distclust or iterSubspace."))}
     
     
-    if(.Platform$OS.type!="unix"){
-        parallel <- FALSE
-        warning("Parallel computing is only supported on Unix platforms.")
-        mcparallel <- identity
-    }else if(.Platform$OS.type=="unix" & parallel==FALSE){
-        mcparallel <- identity
-    }else if(.Platform$OS.type=="unix" & parallel){
-        coresNr <- detectCores()-1
-        options("cores"=coresNr)
+    # check if parallel computing is needed
+    if(nrMethods == 1)  parallel <- FALSE
+    
+    # check if parallel computing is available
+    if(.Platform$OS.type!="unix" & parallel) {
+    	warning("Parallel computing is only supported on Unix platforms.")
+    	parallel <- FALSE
     }
-      
-    parallelFct <- mcparallel
+    
+    if(parallel) {
+    	parallelFct <- parallel::mcparallel
+    	coresNr <- detectCores()-1
+    	options("cores"=coresNr)
+    	
+    } else {
+    	parallelFct <- identity
+    }
 
     
     RES <-  list()
