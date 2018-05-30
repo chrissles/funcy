@@ -1,0 +1,9 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+
+# R CMD build generates .o files, cleanup is missing ...
+\.o$
+\.so$
+\.dll$
+
+^cran-comments\.md$

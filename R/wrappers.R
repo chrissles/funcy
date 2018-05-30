@@ -138,9 +138,6 @@ iterSubspaceWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 funclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
                             nbInit=5, nbIterInit=50, ...){
 
-    if(!requireNamespace("Funclustering"))
-        stop("Please install Funclustering to use this method.")
-    
     if(!reg)
         stop("This method does not work on sparse data!")
     baseType <- funcyCtrlMbc@baseType
@@ -201,8 +198,6 @@ funclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 funHDDCWrapper <- function(data, k, reg, regTime,  funcyCtrlMbc,
                            model="AkBkQkDk", ...){
 
-     if(!requireNamespace("funHDDC"))
-        stop("Please install funHDDC to use this method.")
      if(!reg)
         stop("This method does not work on sparse data!")
     baseType=funcyCtrlMbc@baseType
