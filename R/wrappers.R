@@ -4,8 +4,14 @@
 #
 
 
-fitfclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
-                             fpcCtrl, p=2, pert=0.01){
+fitfclustWrapper <- function(data, 
+														 k,
+														 reg,
+														 regTime,
+														 funcyCtrlMbc,
+                             fpcCtrl,
+														 p=2,
+														 pert=0.01){
     ##input
     dimBase <- funcyCtrlMbc@dimBase
     baseType <- funcyCtrlMbc@baseType
@@ -32,13 +38,25 @@ fitfclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 
     ##evaluation
     ptm <- proc.time()
-    res <- fitfclust(data=data, dimBase=dimBase, h=redDim, p=p, k=k,
-                     regTime=regTime,
-                     epsilon=epsilon, maxiter=maxiter, pert=pert,
-                     hard=hard, seed=seed, init=init, nrep=nrep, reg=reg,
-                     fpcCtrl=fpcCtrl, baseType=baseType)
-    sysTime <- proc.time()-ptm
     
+    res <- fitfclust(data=data, 
+    								 dimBase=dimBase, 
+    								 h=redDim, 
+    								 p=p, 
+    								 k=k,
+                     regTime=regTime,
+                     epsilon=epsilon, 
+    								 maxiter=maxiter, 
+    								 pert=pert,
+                     hard=hard, 
+    								 seed=seed, 
+    								 init=init, 
+    								 nrep=nrep, 
+    								 reg=reg,
+                     fpcCtrl=fpcCtrl, 
+    								 baseType=baseType)
+    
+    sysTime <- proc.time()-ptm
 
     prms <- res$parameters
     ##class prediction
@@ -74,13 +92,25 @@ fitfclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 }
 
 
-distclustWrapper <- function(data, k, reg, regTime, funcyCtrl,
-                            fpcCtrl, method="pam")
+distclustWrapper <- function(data, 
+														 k,
+														 reg,
+														 regTime,
+														 funcyCtrl,
+														 fpcCtrl,
+														 method="pam")
     {
         ##evaluation
         ptm <- proc.time()
-        res <- distclust(data, k, reg, regTime, funcyCtrl,
-                        fpcCtrl, method=method)
+        
+        res <- distclust(data, 
+        								 k,
+        								 reg,
+        								 regTime,
+        								 funcyCtrl,
+        								 fpcCtrl,
+        								 method=method)
+        
         sysTime <- proc.time()-ptm
 
         ##funcyOut
@@ -101,14 +131,23 @@ distclustWrapper <- function(data, k, reg, regTime, funcyCtrl,
     }
 
 
-iterSubspaceWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
-                            fpcCtrl, simplif=TRUE)
+iterSubspaceWrapper <- function(data, 
+																k,
+																reg,
+																regTime,
+																funcyCtrlMbc,
+																fpcCtrl,
+																simplif=TRUE)
     {
         ##evaluation
         ptm <- proc.time()
-        res <- iterSubspace(data=data, k=k, regTime=regTime,
-                        reg=reg, funcyCtrlMbc=funcyCtrlMbc,
-                        fpcCtrl=fpcCtrl, simplif=simplif)
+        res <- iterSubspace(data=data, 
+        										k=k, 
+        										regTime=regTime,
+        										reg=reg, 
+        										funcyCtrlMbc=funcyCtrlMbc,
+        										fpcCtrl=fpcCtrl, 
+        										simplif=simplif)
         sysTime <- proc.time()-ptm
         
         ##funcyOut
@@ -135,8 +174,13 @@ iterSubspaceWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 }
 
 
-funclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
-                            nbInit=5, nbIterInit=50, ...){
+funclustWrapper <- function(data, 
+														k,
+														reg,
+														regTime,
+														funcyCtrlMbc,
+                            nbInit=5,
+														nbIterInit=50, ...){
 
     if(!requireNamespace("Funclustering"))
         stop("Please install Funclustering to use this method.")
@@ -160,13 +204,23 @@ funclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 
     ##evaluation
     ptm <- proc.time()
+    
     res <- formatFuncy(data, regTime=regTime,  format="Format3")
     data <- t(res$Yin); t_all <- res$t_all
     baseObj <- makeBasis(baseType, t_all, nbasis=dimBase)$bObj
     fd <- Data2fd(data, argvals=t_all, basisobj=baseObj);
-    res=Funclustering::funclust(fd=fd, K=k, thd=thd, increaseDimension=increaseDimension, hard=hard, fixedDimension=fixedDimension, nbInit=nbInit,
-        nbIterInit=nbIterInit, nbIteration=nbIteration,
-        epsilon=epsilon, ...)
+    res <- 
+    	Funclustering::funclust(fd=fd, 
+    													K=k, 
+    													thd=thd, 
+    													increaseDimension=increaseDimension, 
+    													hard=hard, 
+    													fixedDimension=fixedDimension, 
+    													nbInit=nbInit,
+    													nbIterInit=nbIterInit, 
+    													nbIteration=nbIteration,
+    													epsilon=epsilon, ...)
+    
     sysTime <- proc.time()-ptm
 
     clout <- label2lowerk(res$cls)
@@ -198,7 +252,11 @@ funclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 }
 
 
-funHDDCWrapper <- function(data, k, reg, regTime,  funcyCtrlMbc,
+funHDDCWrapper <- function(data, 
+													 k,
+													 reg,
+													 regTime,
+													 funcyCtrlMbc,
                            model="AkBkQkDk", ...){
 
      if(!requireNamespace("funHDDC"))
@@ -220,31 +278,45 @@ funHDDCWrapper <- function(data, k, reg, regTime,  funcyCtrlMbc,
     seed <- funcyCtrlMbc@seed
 
     ptm <- proc.time()
-    res <- formatFuncy(data, regTime=regTime, format="Format3")
+    
+    res <- formatFuncy(data, 
+    									 regTime=regTime, 
+    									 format="Format3")
+    
     data <- t(res$Yin); t_all <- res$t_all
     baseObj <- makeBasis(baseType, t_all, nbasis=dimBase)$bObj
     fd <- Data2fd(data, argvals=t_all, basisobj=baseObj);
     set.seed(seed)
-
-    res=tryCatch(funHDDC::funHDDC(data = fd, K = k, init = init, 
-    												 model = model, threshold = thd, itermax = maxit, eps = eps, 
-    												 ...), 
-    				error = function(cond){
-    					return(message("try-error"))
-    				},
-    				warning = function(cond){
-    						warning.res <- cond$message
-    					return(warning.res)
-    				},
-    				finally = message("OK")
-    )
+    
+    res <- 
+    	tryCatch(funHDDC::funHDDC(data = fd, 
+    														K = k, 
+    														init = init, 
+    														model = model, 
+    														threshold = thd, 
+    														itermax = maxit, 
+    														eps = eps, 
+    														...), 
+    					 error = function(cond){
+    					 	return(message("try-error"))
+    					 },
+    					 warning = function(cond){
+    					 	warning.res <- cond$message
+    					 	return(warning.res)
+    					 },
+    					 finally = message("OK")
+    	)
     
     if(res=="try-error" | res == "All models diverged."){
         warning(paste("Clustering with", k,
                       "classes is not possible.", k-1,
                       "clusters are used!"))
         k <- k-1
-        return(funHDDCWrapper(data, k, reg, regTime, funcyCtrlMbc,
+        return(funHDDCWrapper(data, 
+        											k, 
+        											reg, 
+        											regTime, 
+        											funcyCtrlMbc,
                               model="AkBkQkDk", ...))
     }
     sysTime <- proc.time()-ptm
@@ -276,16 +348,34 @@ funHDDCWrapper <- function(data, k, reg, regTime,  funcyCtrlMbc,
 
 
 
-fscmWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
-                        fpcCtrl, location=NULL, scale=FALSE,
-                        knn=5, useCode="C", verbose=FALSE){
+fscmWrapper <- function(data, 
+												k, 
+												reg,
+												regTime,
+												funcyCtrlMbc,
+                        fpcCtrl, 
+												location=NULL,
+												scale=FALSE,
+                        knn=5, 
+												useCode="C", 
+												verbose=FALSE){
     if(!reg)
         stop("This method does not work on sparse data!")
 
     ##evaluation
     ptm <- proc.time()
-    res <- fscm(data, k, reg=reg, regTime=regTime, funcyCtrlMbc,
-            location=location, scale=scale, knn=knn, useCode=useCode, verbose=verbose)
+    
+    res <- fscm(data, 
+    						k,
+    						reg=reg,
+    						regTime=regTime,
+    						funcyCtrlMbc,
+    						location=location,
+    						scale=scale, 
+    						knn=knn, 
+    						useCode=useCode, 
+    						verbose=verbose)
+    
     sysTime <- proc.time()-ptm
 
     ##funcyOut
@@ -319,8 +409,14 @@ fscmWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
 
 
 
-waveclustWrapper <- function(data, k, reg, regTime, funcyCtrlMbc,
-                             gamma="group", init="SEM", plotLoglik=FALSE){
+waveclustWrapper <- function(data, 
+														 k, 
+														 reg, 
+														 regTime, 
+														 funcyCtrlMbc,
+                             gamma="group", 
+														 init="SEM", 
+														 plotLoglik=FALSE){
     
                      
     if(!reg)
