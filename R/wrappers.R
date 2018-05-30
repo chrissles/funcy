@@ -182,9 +182,6 @@ funclustWrapper <- function(data,
                             nbInit=5,
 														nbIterInit=50, ...){
 
-    if(!requireNamespace("Funclustering"))
-        stop("Please install Funclustering to use this method.")
-    
     if(!reg)
         stop("This method does not work on sparse data!")
     baseType <- funcyCtrlMbc@baseType
@@ -259,8 +256,6 @@ funHDDCWrapper <- function(data,
 													 funcyCtrlMbc,
                            model="AkBkQkDk", ...){
 
-     if(!requireNamespace("funHDDC"))
-        stop("Please install funHDDC to use this method.")
      if(!reg)
         stop("This method does not work on sparse data!")
     baseType=funcyCtrlMbc@baseType
