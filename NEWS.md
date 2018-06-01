@@ -13,7 +13,7 @@ control statements with condition with condition greater than one --> fixed
 
 * R/wrappers.R:
 
-1. updated function "funHDDCWrapper" so that no errors occur after new version of package "funHDDC".
+1. updated function "funHDDCWrapper" so that no errors occur after new version of package "funHDDC"
 
 * DESCRIPTION
 

@@ -35,7 +35,6 @@ LazyLoad: yes
 Encoding: UTF-8
 NeedsCompilation: yes
 RoxygenNote: 6.0.1
-Packaged: 2017-02-01 21:27:42 UTC; chrissles
 Author: Christina Yassouridis [aut, cre],
   Dominik Ernst [ctb],
   Madison Giacofci [ctb],
@@ -52,4 +51,3 @@ Author: Christina Yassouridis [aut, cre],
   Pai-Ling Li [ctb]
 Maintainer: Christina Yassouridis <chris.yassou@gmail.com>
 Repository: CRAN
-Date/Publication: 2017-02-10 02:26:54
