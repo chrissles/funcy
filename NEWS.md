@@ -7,6 +7,10 @@ funcy version 0.8.6
 Changes (NOCH NICHT SUBMITTED)
 -------
 
+* R/funPrinComp.R:
+ 
+control statements with condition with condition greater than one --> fixed
+
 * R/wrappers.R:
 
 1. updated function "funHDDCWrapper" so that no errors occur after new version of package "funHDDC".
