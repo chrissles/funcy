@@ -221,21 +221,21 @@ funHDDCWrapper <- function(data, k, reg, regTime,  funcyCtrlMbc,
     fd <- Data2fd(data, argvals=t_all, basisobj=baseObj);
     set.seed(seed)
 
-    res=tryCatch(funHDDC::funHDDC(data = fd, K = k, init = init, 
+    res <- tryCatch(funHDDC::funHDDC(data = fd, K = k, init = init, 
     												 model = model, threshold = thd, itermax = maxit, eps = eps, 
     												 ...), 
     				error = function(cond){
-    					return(message("try-error"))
+    					return("try-error")
     				},
     				warning = function(cond){
     						warning.res <- cond$message
     					return(warning.res)
     				},
-    				finally = message("OK")
+    				finally = "OK"
     )
     
-    if(res=="try-error" | res == "All models diverged."){
-        warning(paste("Clustering with", k,
+    if(all(res=="try-error") | all(res == "All models diverged.")){
+    	warning(paste("Clustering with", k,
                       "classes is not possible.", k-1,
                       "clusters are used!"))
         k <- k-1
