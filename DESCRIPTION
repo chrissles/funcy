@@ -30,7 +30,11 @@ License: GPL-2
 Depends: flexclust, splines
 Imports: MASS, Matrix, fda, methods, wavethresh, kernlab, parallel,
         car, fields, calibrate, cluster, sm, caTools, plyr
-Suggests: scatterplot3d, Funclustering, funHDDC
+Suggests: 
+    scatterplot3d, 
+    Funclustering, 
+    funHDDC,
+    testthat
 LazyLoad: yes
 Encoding: UTF-8
 NeedsCompilation: yes
