@@ -21,7 +21,7 @@
        Old maintainer(s):
          Christina Yassouridis <c_ya02@yahoo.de>
      
-This change of email address was announced by c_ya02@yahoo.de to CRAN@R-project.org on 2018-05-30.      
+This change of email address was announced by c_ya02@yahoo.de to CRAN@R-project.org on 2018-06-01.      
 
     * checking compiled code ... NOTE
     File ‘funcy/libs/funcy.so’:
@@ -32,8 +32,8 @@ This change of email address was announced by c_ya02@yahoo.de to CRAN@R-project.
 
     See ‘Writing portable packages’ in the ‘Writing R Extensions’ manual.
 
-Fix it? 
-https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Writing-portable-packages
+I will take care of this note in the next submission.
+
 
     * checking examples ...
     ** running examples for arch 'i386' ... NOTE
@@ -53,9 +53,9 @@ https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Writing-portable-pa
     rIMethods 18.252  0.128  18.352
     funcit     9.036  0.344   9.921
 
-Execution times for both platforms are only slightly above the threshold of 5s, the linux machine is just slow...  ;)
+Execution times for both platforms are only slightly above the threshold of 5s, the linux machine is just slow.
 
 
 ## Reverse dependencies
 
-This package has no reverse dependencies. Yet. :)
+This package has no reverse dependencies. 
