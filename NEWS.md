@@ -1,7 +1,7 @@
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
 
-funcy version 0.8.6
+funcy version 0.9.0
 ===================
 
 Changes (NOCH NICHT SUBMITTED)
