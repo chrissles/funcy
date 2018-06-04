@@ -283,31 +283,35 @@ funHDDCWrapper <- function(data,
     fd <- Data2fd(data, argvals=t_all, basisobj=baseObj);
     set.seed(seed)
 
-    res <- tryCatch(funHDDC::funHDDC(data = fd, K = k, init = init, 
-    												 model = model, threshold = thd, itermax = maxit, eps = eps, 
-    												 ...), 
-    				error = function(cond){
-    					return("try-error")
-    				},
-    				warning = function(cond){
-    						warning.res <- cond$message
-    					return(warning.res)
-    				},
-    				finally = "OK"
-    )
-
-    if(all(res=="try-error") | all(res == "All models diverged.")){
-    	warning(paste("Clustering with", k,
-    								"classes is not possible.", k-1,
-    								"clusters are used!"))
-    	k <- k-1
-    	return(funHDDCWrapper(data, 
-    												k, 
-    												reg, 
-    												regTime, 
-    												funcyCtrlMbc,
-    												model="AkBkQkDk", ...))
+    # recursive wrapper function to automatically decrease the number of classes
+    # in case funHDDC() raises any error or the warning "All models diverged."
+    .funHDDC_auto <- function(data, K, init, model, threshold, itermax, eps, ...)
+    {
+      args <- c(list(data = data, K = K, init = init, model = model, 
+                     threshold = threshold, itermax = itermax, eps = eps),
+                ...)
+      
+      withRestarts(
+        tryCatch(do.call(funHDDC::funHDDC, args), 
+                 error = function(e) invokeRestart("reduceClusterCount"),
+                 warning = function(w) {
+                   if (w$message == "All models diverged.") {
+                     warning(paste("Clustering with", args$K, 
+                                   "classes is not possible.",	args$K - 1, 
+                                   "clusters are used."), call. = FALSE)
+                     invokeRestart("reduceClusterCount")
+                   }
+                 }),
+        reduceClusterCount = function() {
+          args$K <- args$K - 1
+          do.call(.funHDDC_auto, args)
+        }
+      )
     }
+    
+    res <- .funHDDC_auto(data = fd, K = k, init = init, model = model, 
+                         threshold = thd, itermax = maxit, eps = eps, ...)
+    
     sysTime <- proc.time()-ptm
 
     ##funcyOut
