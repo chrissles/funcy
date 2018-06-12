@@ -9,9 +9,9 @@ OFILES=base/cc.o base/otrav.o base/common.o base/debug.o \
     math/discrete.o
 
 
-PKG_CPPFLAGS += -DDISABLE_DISK_MATRIX -DSCALE_NORMAL -I. -I..
+PKG_CPPFLAGS += -DWIN32 -DDISABLE_DISK_MATRIX -DSCALE_NORMAL -I. -I..
 PKG_CFLAGS +=
-PKG_CXXFLAGS += -std=gnu++0x
+PKG_CXXFLAGS += -std=c++0x
 
 PKG_LIBS += $(OFILES) $(BLAS_LIBS) $(LAPACK_LIBS)
 
