@@ -54,6 +54,13 @@ int yet_another_isnan(double x) {
     return(x != x);
 }
 
+#ifdef WIN32
+char FMT_LONG_LONG[] = "%I64d";
+char FMT_ULONG_LONG[] = "%I64u";
+#else
+char FMT_LONG_LONG[] = "%lld";
+char FMT_ULONG_LONG[] = "%llu";
+#endif
 
 
 void fl_abort(void)

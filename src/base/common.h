@@ -141,14 +141,8 @@ typedef int fl__index_t;            /* Normal sized data; usually 32-bit. */
 #define GIGABYTE (((size_t)1) << 30)
 /* Add more of these as necessary. */
 
-
-#ifdef WIN32
-#define FMT_LONG_LONG "%I64d"
-#define FMT_ULONG_LONG "%I64u"
-#else
-#define FMT_LONG_LONG "%lld"
-#define FMT_ULONG_LONG "%llu"
-#endif
+extern char FMT_LONG_LONG[];
+extern char FMT_ULONG_LONG[];
 
 
 
