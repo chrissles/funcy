@@ -136,7 +136,6 @@ void do_fscm(const char **datafile,
 
 }
 
-/*
 static R_NativePrimitiveArgType do_fscm_t[] = {
 	STRSXP, STRSXP, STRSXP, STRSXP, STRSXP, 
 	INTSXP, REALSXP, 
@@ -148,10 +147,10 @@ static R_CMethodDef cMethods[] = {
 	{NULL, NULL, 0}
 };
 
-
+extern "C"
 void R_init_funcy(DllInfo *info) {
 	R_registerRoutines(info, cMethods, NULL, NULL, NULL);
 	R_useDynamicSymbols(info, FALSE);
 	R_forceSymbols(info, TRUE);
 }
-*/
+
