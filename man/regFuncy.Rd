@@ -20,8 +20,10 @@ regFuncy(data, timeNr = 10, method = "project", baseType = NULL, nbasis = 4, plo
     Number of time points the regular dataset shall be evaluated at.
   }
   \item{method}{
-    Method to tranform regularization with one of "project",
-    "interpolate", "pace". See Details. 
+%-    Method to tranform regularization with one of "project",
+%-    "interpolate", "pace". See Details. 
+    Method to tranform regularization with one of "project" or 
+    "interpolate". See Details. 
   }
   \item{baseType}{
     Base type. Only used if method="project".
@@ -34,12 +36,13 @@ regFuncy(data, timeNr = 10, method = "project", baseType = NULL, nbasis = 4, plo
   }
 }
 \details{
-  Data is either interpolated or projected to a basis. If method="pace",
-  regularization is done via functional principal component analysis by
-  conditional estimation (Müller2005). This is especially useful if
-  the dataset is sparse. "pace" is implemented in the supplementary
-  package "funcyOctave" which is loaded automatically but works only on
-  Unix-platforms. 
+  Data is either interpolated or projected to a basis. 
+%-   If method="pace",
+%-  regularization is done via functional principal component analysis by
+%-  conditional estimation (Müller2005). This is especially useful if
+%-  the dataset is sparse. "pace" is implemented in the supplementary
+%-  package "funcyOctave" which is loaded automatically but works only on
+%-  Unix-platforms.
   For all methods, curve evaluation takes place on time points calculated by
   \code{\link{makeCommonTime}}.
 }
