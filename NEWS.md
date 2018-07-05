@@ -4,7 +4,6 @@
 funcy version 1.0.0
 ===================
 
-Changes (NOCH NICHT SUBMITTED)
 -------
 
 * R/format.R:
