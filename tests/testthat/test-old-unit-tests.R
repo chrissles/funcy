@@ -8,29 +8,13 @@ silent <- function(expr) {
   return(result)
 }
 
-# when unit test plot functions, we just check for the presence of a file 
-# and delete it immediately
-expect_plot <- function(..., file = "Rplots.pdf", delete = TRUE) 
-{
-  pdf(file = file)
-  x <- expect_silent(...)
-  dev.off()
-  
-  exists <- file.exists(file)
-  y <- expect_true(exists)
-  if (exists & delete) file.remove(file)
-  
-  return(invisible(x))
-}
 
 methods <- "ALL"
 k <- 5
 set.seed(3804)
 ds <- sampleFuncy(obsNr = 100, timeNr = 20, reg = TRUE, k = k, sd = 0.4)
 
-test_that("Plotting regular data sets", {
-  expect_plot(plotFuncy(ds@data))
-})
+
 
 
 test_that("All Cluster algorithms work", {
@@ -41,20 +25,6 @@ test_that("All Cluster algorithms work", {
     save.data = TRUE, parallel = parallel
   ))
   
-  expect_plot(plot(res1))
-  
-  expect_plot(plot(res1, select = 1, type = "all"))
-  expect_plot(plot(res1, select = c(1, 2), type = "centers"))
-  expect_plot(plot(res1, select = 1, type = "dist2centers"))
-  
-  ## special plot functions for fitclust-object
-  expect_plot(plot(res1, select = "fitfclust", type = "discrim"))
-  expect_plot(plot(res1, select = "fitfclust", type = "conf"))
-  
-  ## special plot functions for FSCM-object
-  expect_plot(plot(res1, select = "fscm", type = "overview"))
-  expect_plot(plot(res1, select = "fscm", type = "deviations"))
-  expect_plot(plot(res1, select = "fscm", type = "locations"))
 })
 
 
@@ -62,10 +32,6 @@ test_that("All Cluster algorithms work", {
 
 set.seed(3805)
 ds <- sampleFuncy(reg = FALSE, timeNrMin = 5, timeNrMax = 10, k = k, sd = 0.3)
-
-test_that("Plotting irregular data set ", {
-  expect_plot(plotFuncy(ds))
-})
 
 test_that("Making an irregular data set regular", {
   data <- expect_silent(regFuncy(ds@data, timeNr = 10, nbasis = 5,
@@ -109,11 +75,5 @@ test_that("Test control arguments", {
     save.data = TRUE,
     parallel = parallel
   ))
-  
-  expect_plot(plot(res3, type = "all"))
-  expect_plot(plot(res3, type = "accordance"))
-  
-  library(scatterplot3d)
-  expect_plot(plot(res3, select = 3, type = "fpc"))
 })
 
