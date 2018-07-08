@@ -18,7 +18,7 @@ expect_plot <- function(..., file = "Rplots.pdf", delete = TRUE)
   
   exists <- file.exists("Rplots.pdf")
   y <- expect_true(exists)
-  if (delete & exists) file.remove(file)
+  if (delete) file.remove(file)
   
   return(invisible(x))
 }
