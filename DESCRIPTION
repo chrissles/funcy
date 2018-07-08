@@ -29,7 +29,7 @@ Description: Unified framework to cluster functional data according to one of
 License: GPL-2
 Depends: flexclust, splines
 Imports: MASS, Matrix, fda, methods, wavethresh, kernlab, parallel,
-        car, fields, calibrate, cluster, sm, caTools, plyr
+        car, fields, calibrate, cluster, sm, plyr
 Suggests: scatterplot3d, Funclustering, funHDDC
 LazyLoad: yes
 Encoding: UTF-8

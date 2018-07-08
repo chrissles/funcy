@@ -12,3 +12,5 @@ For function regFuncy, method "pace" is not available any longer.
 "Pace" was dependent (via an interface funcyOctave) on the R package "RcppOctave" which had been removed from 
 CRAN.
 
+* R/functions.R:
+Removed import of trapz function from caTools since the package it is scheduled for archival.
