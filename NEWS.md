@@ -14,3 +14,5 @@ CRAN.
 
 * R/functions.R:
 Removed import of trapz function from caTools since the package it is scheduled for archival.
+
+* Unit tests added with testthat
