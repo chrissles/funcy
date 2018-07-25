@@ -51,13 +51,18 @@ regFuncy(data, timeNr = 10, method = "project", baseType = NULL, nbasis = 4, plo
   \item{time}{Vector of evaluation time points.}
 
 }
+
 \references{
+  Christina Yassouridis and Dominik Ernst and Friedrich Leisch. 
+  Generalization, Combination and Extension of Functional Clustering Algorithms: 
+  The R Package funcy. Journal of Statistical Software. 85 (9). 1--25. 2018
+    
   F. Yao and H.G. Müller and J.L. Wang. Functional data analysis for
   sparse longitudinal data. J. American Statistical
   Association. 100. 577--590. 2005
   URL: http://www.stat.ucdavis.edu/PACE/
-
 }
+
 \author{
 Christina Yassouridis
 }
