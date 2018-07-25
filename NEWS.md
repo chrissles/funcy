@@ -16,3 +16,7 @@ CRAN.
 Removed import of trapz function from caTools since the package it is scheduled for archival.
 
 * Unit tests added with testthat
+
+* added CITATION of JSS paper
+
+* added citations of JSS paper in Rd files
