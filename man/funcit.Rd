@@ -251,7 +251,7 @@ clusters <- genes$clusters
 
 ##Cluster the functions with all available methods. 
 res <- funcit(data=data, clusters=clusters,
-              methods=c(1:7), seed=2404,
+              methods=c(1:7)[-4], seed=2404,
               k=4)
 summary(res)
 Cluster(res)
