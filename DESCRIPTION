@@ -37,7 +37,7 @@ Suggests:
 LazyLoad: yes
 Encoding: UTF-8
 NeedsCompilation: yes
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Author: Christina Yassouridis [aut, cre],
   Dominik Ernst [ctb],
   Madison Giacofci [ctb],
