@@ -350,7 +350,7 @@ fscmWrapper <- function(data,
 												location=NULL,
 												scale=FALSE,
                         knn=5, 
-												useCode="C", 
+												useCode="R", 
 												verbose=FALSE){
     if(!reg)
         stop("This method does not work on sparse data!")
