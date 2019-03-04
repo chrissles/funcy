@@ -2,7 +2,7 @@ Package: funcy
 Type: Package
 Title: Functional Clustering Algorithms
 Version: 1.0.1
-Date: 2018-03-01
+Date: 2018-03-04
 Authors@R: c(
 	   person(given="Christina", family="Yassouridis", email="chris.yassou@gmail.com",
 	   role=c("aut", "cre")),
