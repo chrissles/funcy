@@ -82,11 +82,11 @@ sampleFuncy(obsNr=100, k=4, timeNr=20, timeNrMax=NULL,
 
 \value{
   \itemize{
-    \item[sampleFuncy]
+    \item{sampleFuncy}
     A list with entries \code{data} and \code{clusters}.
-    \item[Cluster]
+    \item{Cluster}
     Retrieve vector of cluster assignments
-    \item[Data]
+    \item{Data}
     Retrieve matrix of dataset
   }
 }
